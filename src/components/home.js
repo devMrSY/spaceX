@@ -30,7 +30,7 @@ const Home = () => {
     setData({
       disPlayData: spaceXlist,
     });
-  }, [spaceXlist?.length]);
+  }, [spaceXlist, spaceXlist.length]);
 
   const handleSearch = (e) => {
     let searchvalue = e.target.value;
