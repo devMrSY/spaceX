@@ -24,7 +24,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(setspacexList());
-  }, []);
+  });
 
   useEffect(() => {
     setData({
