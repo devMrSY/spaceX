@@ -1,2 +1,2 @@
 # spaceX
-This is simple app using reactjs and redux for data management. In this application I have created simple fashion card to display spaceX rocket information.
+this is simple react app using redux store management to display the space X data.
