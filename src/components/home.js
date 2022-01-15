@@ -24,13 +24,13 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(setspacexList());
-  });
+  }, []);
 
   useEffect(() => {
     setData({
       disPlayData: spaceXlist,
     });
-  }, [spaceXlist, spaceXlist.length]);
+  }, [spaceXlist.length]);
 
   const handleSearch = (e) => {
     let searchvalue = e.target.value;
