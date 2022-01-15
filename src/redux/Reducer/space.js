@@ -5,12 +5,12 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'REQUEST_PARTICIPANTS':
+    case 'REQUEST_SPACEXDATA':
       return {
         ...state,
         loading: true,
       };
-    case 'SET_PARTICIPANTS':
+    case 'SET_SPACEXDATA':
       return {
         ...state,
         loading: false,
