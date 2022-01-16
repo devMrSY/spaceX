@@ -12,6 +12,12 @@ const initialPaginationState = {
 const Home = () => {
   const [data, setData] = useState(initialPaginationState);
   const [searchKey, setSearchKey] = useState('');
+  const [filterValue, setFilterValue] = useState({
+    time: '',
+    status: '',
+    upcoming: '',
+  });
+
   const dispatch = useDispatch();
   const [Loading, spaceXlist] = useSelector((Gstate) => [
     Gstate.space?.loading,
@@ -46,6 +52,10 @@ const Home = () => {
   const handleFilter = (event) => {
     let inputValue = event.target.value;
     setSearchKey('');
+    setFilterValue((prev) => ({
+      ...prev,
+      [event.target.name]: event.target.value,
+    }));
     if (inputValue === 'true' || inputValue === 'false') {
       let arr = spaceXlist.filter(
         (item) => String(item.launch_success) === inputValue
@@ -103,6 +113,8 @@ const Home = () => {
         handleSearch={handleSearch}
         handleFilter={handleFilter}
         searchKey={searchKey}
+        filterValue={filterValue}
+        setFilterValue={setFilterValue}
       />
       <Card cardData={disPlayData} loading={Loading} />
     </Container>

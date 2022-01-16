@@ -8,7 +8,9 @@ import {
   Container,
 } from 'react-bootstrap';
 
-const Header = ({ searchKey, handleSearch, handleFilter }) => {
+const Header = ({ searchKey, handleSearch, handleFilter, filterValue }) => {
+  const { time, status, upcoming } = filterValue;
+
   return (
     <Row className="mt-2 px-4 position-fixed w-100">
       <Col>
@@ -42,6 +44,8 @@ const Header = ({ searchKey, handleSearch, handleFilter }) => {
                   aria-label="Default select example"
                   className="me-2"
                   onChange={handleFilter}
+                  value={time}
+                  name="time"
                 >
                   <option hidden>Date</option>
                   <option value="week">Last Week</option>
@@ -53,6 +57,8 @@ const Header = ({ searchKey, handleSearch, handleFilter }) => {
                   aria-label="Default select example                   "
                   className="me-2"
                   onChange={handleFilter}
+                  value={status}
+                  name="status"
                 >
                   <option hidden>Status</option>
                   <option value="true">Success</option>
@@ -62,6 +68,8 @@ const Header = ({ searchKey, handleSearch, handleFilter }) => {
                 <Form.Select
                   aria-label="Default select example"
                   onChange={handleFilter}
+                  value={upcoming}
+                  name="upcoming"
                 >
                   <option hidden>Upcoming</option>
                   <option value="coming_true">Yes</option>
