@@ -2,6 +2,7 @@ import { Col, Row, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
 import moment from 'moment';
 
 const FashionCard = ({ cardData, loading }) => {
+  console.log(cardData);
   return (
     <Row
       className="d-flex mx-3 mt-5 h-100"
@@ -60,23 +61,13 @@ const FashionCard = ({ cardData, loading }) => {
                 </ListGroupItem>
                 <ListGroupItem className="bg-transparent text-white">
                   <Row className="d-flex flex-row">
-                    <Col>
-                      <Card.Link
-                        className="text-decoration-none"
-                        href={item.links.video_link}
-                        target={'_blank'}
-                      >
-                        <div className="text-info ">Youtube Video Link</div>
-                      </Card.Link>
-                    </Col>
-                    <Col>
-                      <Card.Link
-                        className="text-decoration-none"
-                        href={item.links.wikipedia}
-                        target={'_blank'}
-                      >
-                        <div className="text-info ">Wikipedia Link</div>
-                      </Card.Link>
+                    <Col>Reuse</Col>
+                    <Col
+                      className={`text-${
+                        item.reuse.capsule ? 'success' : 'danger'
+                      }`}
+                    >
+                      {item.reuse.capsule ? 'Yes' : 'No'}
                     </Col>
                   </Row>
                 </ListGroupItem>
