@@ -3,7 +3,7 @@ const INITIAL_STATE = {
   loading: false,
 };
 
-export default (state = INITIAL_STATE, action) => {
+const spaceXReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case 'REQUEST_SPACEXDATA':
       return {
@@ -20,3 +20,5 @@ export default (state = INITIAL_STATE, action) => {
       return state;
   }
 };
+
+export default spaceXReducer;
