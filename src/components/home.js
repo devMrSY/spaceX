@@ -2,7 +2,6 @@ import { Container } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setspacexList } from '../redux/Action/space';
-
 import Header from './header';
 import Card from './card';
 
@@ -18,9 +17,6 @@ const Home = () => {
     Gstate.space?.loading,
     Gstate.space?.spaceXlist,
   ]);
-
-  const { disPlayData } = data;
-  console.log('spaceXlist', spaceXlist);
 
   useEffect(() => {
     dispatch(setspacexList());
@@ -54,12 +50,10 @@ const Home = () => {
       let arr = spaceXlist.filter(
         (item) => String(item.launch_success) === inputValue
       );
-      console.log(arr);
       setData({
         disPlayData: arr,
       });
     } else if (inputValue === 'coming_false' || inputValue === 'coming_true') {
-      console.log('dataasldlkfjakl');
       let arr = spaceXlist.filter(
         (item) => 'coming_' + String(item.upcoming) === inputValue
       );
@@ -92,7 +86,6 @@ const Home = () => {
           today.getDate()
         );
       }
-      console.log('today', today);
       let arr = spaceXlist.filter(
         (item) => new Date(item.launch_date_unix * 1000) >= today
       );
@@ -101,6 +94,8 @@ const Home = () => {
       });
     }
   };
+
+  const { disPlayData } = data;
 
   return (
     <Container className="d-flex" fluid>
