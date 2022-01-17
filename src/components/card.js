@@ -4,10 +4,7 @@ import moment from 'moment';
 const FashionCard = ({ cardData, loading }) => {
   console.log(cardData);
   return (
-    <Row
-      className="d-flex mx-3 mt-5 h-100"
-      style={{ zIndex: -999, paddingTop: 30 }}
-    >
+    <Row className="d-flex mx-3 mt-5 h-100" style={{ paddingTop: 30 }}>
       {cardData?.map((item, key) => (
         <Col key={key} md={4} sm={6} className="mb-4">
           <Card className="bg-transparent text-white border border-white">
@@ -61,13 +58,23 @@ const FashionCard = ({ cardData, loading }) => {
                 </ListGroupItem>
                 <ListGroupItem className="bg-transparent text-white">
                   <Row className="d-flex flex-row">
-                    <Col>Reuse</Col>
-                    <Col
-                      className={`text-${
-                        item.reuse.capsule ? 'success' : 'danger'
-                      }`}
-                    >
-                      {item.reuse.capsule ? 'Yes' : 'No'}
+                    <Col>
+                      <Card.Link
+                        className="text-decoration-none"
+                        href={item.links.video_link}
+                        target={'_blank'}
+                      >
+                        <div className="text-info ">Youtube Video Link</div>
+                      </Card.Link>
+                    </Col>
+                    <Col>
+                      <Card.Link
+                        className="text-decoration-none"
+                        href={item.links.wikipedia}
+                        target={'_blank'}
+                      >
+                        <div className="text-info ">Wikipedia Link</div>
+                      </Card.Link>
                     </Col>
                   </Row>
                 </ListGroupItem>
@@ -76,9 +83,9 @@ const FashionCard = ({ cardData, loading }) => {
           </Card>
         </Col>
       ))}
-      <h1 className="text-warning mt-5 d-flex align-items-center">
+      <div className="text-warning mt-5 d-flex align-items-center h1">
         {loading ? 'loading' : !cardData?.length ? 'No Data available' : ''}
-      </h1>
+      </div>
     </Row>
   );
 };
