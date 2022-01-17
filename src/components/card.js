@@ -4,7 +4,7 @@ import moment from 'moment';
 const FashionCard = ({ cardData, loading }) => {
   console.log(cardData);
   return (
-    <Row className="d-flex mx-3 mt-5 h-100" style={{ paddingTop: 30 }}>
+    <Row className="d-flex mx-3" style={{ marginTop: 80 }}>
       {cardData?.map((item, key) => (
         <Col key={key} md={4} sm={6} className="mb-4">
           <Card className="bg-transparent text-white border border-white">
@@ -57,7 +57,7 @@ const FashionCard = ({ cardData, loading }) => {
                   </Row>
                 </ListGroupItem>
                 <ListGroupItem className="bg-transparent text-white">
-                  <Row className="d-flex flex-row p-1 bg-dark rounded">
+                  <Row className="d-flex flex-row">
                     <Col>
                       <Card.Link
                         className="text-decoration-none"
@@ -83,7 +83,10 @@ const FashionCard = ({ cardData, loading }) => {
           </Card>
         </Col>
       ))}
-      <div className="text-warning mt-5 d-flex align-items-center h1">
+      <div
+        className="d-flex justify-content-center text-warning h1"
+        style={{ marginTop: '15%' }}
+      >
         {loading ? 'loading' : !cardData?.length ? 'No Data available' : ''}
       </div>
     </Row>

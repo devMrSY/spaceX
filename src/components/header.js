@@ -5,14 +5,13 @@ import {
   FormControl,
   Form,
   Navbar,
-  Container,
 } from 'react-bootstrap';
 
 const Header = ({ searchKey, handleSearch, handleFilter, filterValue }) => {
   const { time, status, upcoming } = filterValue;
 
   return (
-    <Row className="mt-2 px-4 position-fixed w-100" style={{ zIndex: 999 }}>
+    <Row className="mx-2 mt-1 zindex-sticky fixed-top">
       <Col>
         <Navbar
           className="rounded border border-light "

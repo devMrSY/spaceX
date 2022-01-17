@@ -118,7 +118,7 @@ const Home = () => {
   const { disPlayData } = data;
 
   return (
-    <Container className="d-flex" fluid>
+    <Container fluid>
       <Header
         handleSearch={handleSearch}
         handleFilter={handleFilter}
