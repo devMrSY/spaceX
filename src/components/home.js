@@ -35,6 +35,11 @@ const Home = () => {
   }, [spaceXlist, spaceXlist.length]);
 
   const handleSearch = (e) => {
+    setFilterValue({
+      time: '',
+      status: '',
+      upcoming: '',
+    });
     let searchvalue = e.target.value;
     setSearchKey(searchvalue);
     let arr = spaceXlist.filter((item) =>
@@ -52,6 +57,11 @@ const Home = () => {
   const handleFilter = (event) => {
     let inputValue = event.target.value;
     setSearchKey('');
+    setFilterValue({
+      time: '',
+      status: '',
+      upcoming: '',
+    });
     setFilterValue((prev) => ({
       ...prev,
       [event.target.name]: event.target.value,

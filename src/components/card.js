@@ -57,7 +57,7 @@ const FashionCard = ({ cardData, loading }) => {
                   </Row>
                 </ListGroupItem>
                 <ListGroupItem className="bg-transparent text-white">
-                  <Row className="d-flex flex-row">
+                  <Row className="d-flex flex-row p-1 bg-dark rounded">
                     <Col>
                       <Card.Link
                         className="text-decoration-none"
