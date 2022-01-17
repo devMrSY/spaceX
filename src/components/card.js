@@ -76,9 +76,9 @@ const FashionCard = ({ cardData, loading }) => {
           </Card>
         </Col>
       ))}
-      {!loading && !cardData.length && (
-        <h1 className="text-warning d-flex mt-5">No Data available</h1>
-      )}
+      <h1 className="text-warning mt-5 d-flex align-items-center">
+        {loading ? 'loading' : !cardData?.length ? 'No Data available' : ''}
+      </h1>
     </Row>
   );
 };
