@@ -4,13 +4,14 @@ import moment from 'moment';
 const FashionCard = ({ cardData, loading }) => {
   console.log(cardData);
   return (
-    <Row className="d-flex mx-3" style={{ marginTop: 80 }}>
+    <Row className="d-flex mx-3 " style={{ marginTop: 80 }}>
       {cardData?.map((item, key) => (
         <Col key={key} md={4} sm={6} className="mb-4">
           <Card className="bg-transparent text-white border border-white">
             <Row className="d-flex flex-row p-2">
               <Col>
                 <Card.Img
+                  className="h-100 w-100"
                   variant="top"
                   src={item.links.mission_patch}
                   alt={item.rocket.rocket_name}
@@ -57,14 +58,14 @@ const FashionCard = ({ cardData, loading }) => {
                   </Row>
                 </ListGroupItem>
                 <ListGroupItem className="bg-transparent text-white">
-                  <Row className="d-flex flex-row">
+                  <Row className="d-flex flex-row p-1 bg-dark rounded">
                     <Col>
                       <Card.Link
                         className="text-decoration-none"
                         href={item.links.video_link}
                         target={'_blank'}
                       >
-                        <div className="text-info ">Youtube Video Link</div>
+                        <div className="text-info">Youtube Link</div>
                       </Card.Link>
                     </Col>
                     <Col>
