@@ -1,4 +1,11 @@
-import { Col, Row, Card, ListGroup, ListGroupItem } from 'react-bootstrap';
+import {
+  Col,
+  Row,
+  Card,
+  ListGroup,
+  ListGroupItem,
+  Spinner,
+} from 'react-bootstrap';
 import moment from 'moment';
 
 const FashionCard = ({ cardData, loading }) => {
@@ -88,7 +95,16 @@ const FashionCard = ({ cardData, loading }) => {
         className="d-flex justify-content-center text-warning h1"
         style={{ marginTop: '15%' }}
       >
-        {loading ? 'loading' : !cardData?.length ? 'No Data available' : ''}
+        {loading ? (
+          <div>
+            <Spinner animation="grow"></Spinner>
+            <span className="ms-3">Loading...</span>
+          </div>
+        ) : !cardData?.length ? (
+          'No Data available'
+        ) : (
+          ''
+        )}
       </div>
     </Row>
   );
