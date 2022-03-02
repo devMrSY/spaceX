@@ -9,13 +9,12 @@ import {
 import moment from 'moment';
 
 const FashionCard = ({ cardData, loading }) => {
-  console.log(cardData);
   return (
     <Row className="d-flex mx-3 " style={{ marginTop: 80 }}>
       {cardData?.map((item, key) => (
-        <Col key={key} md={4} sm={6} className="mb-4">
-          <Card className="bg-transparent text-white border border-white">
-            <Row className="d-flex flex-row p-2">
+        <Col key={key} md={6} sm={12} className="mb-4">
+          <Card className="bg-transparent text-white border border-white" style={{display:'flex',flexDirection:'row' }}>
+            <Row className="d-flex flex-row p-2" style={{width:'40%'}}>
               <Col>
                 <Card.Img
                   className="h-100 w-100"
@@ -24,22 +23,23 @@ const FashionCard = ({ cardData, loading }) => {
                   alt={item.rocket.rocket_name}
                 />
               </Col>
-              <Col>
-                <Card.Body>
-                  <Card.Title className="mt-3">
-                    <h2 className="text-primary">{item.rocket.rocket_name}</h2>
-                    <h5 className="text-secondary">{item.mission_name}</h5>
-                    <span>
-                      {moment(item.launch_date_unix * 1000).format(
-                        'MM-DD-YYYY'
-                      )}
-                    </span>
-                  </Card.Title>
-                </Card.Body>
-              </Col>
             </Row>
-            <div>
+            <div style={{width:'60%'}}>
               <ListGroup className="list-group-flush">
+              <ListGroupItem className="bg-transparent text-white">
+                  <Row className="d-flex flex-row">
+                    <Col>Name</Col>
+                    <Col>{item.rocket.rocket_name}</Col>
+                  </Row>
+                </ListGroupItem>
+                <ListGroupItem className="bg-transparent text-white">
+                  <Row className="d-flex flex-row">
+                    <Col>Date</Col>
+                    <Col>{moment(item.launch_date_unix * 1000).format(
+                        'MM-DD-YYYY'
+                      )}</Col>
+                  </Row>
+                </ListGroupItem>
                 <ListGroupItem className="bg-transparent text-white">
                   <Row className="d-flex flex-row">
                     <Col>Upcoming</Col>
@@ -49,11 +49,7 @@ const FashionCard = ({ cardData, loading }) => {
                 <ListGroupItem className="bg-transparent text-white">
                   <Row className="d-flex flex-row">
                     <Col>Launch Status</Col>
-                    <Col
-                      className={`text-${
-                        item.launch_success ? 'success' : 'danger'
-                      }`}
-                    >
+                    <Col>
                       {item.launch_success ? 'Success' : 'Fail'}
                     </Col>
                   </Row>
@@ -64,35 +60,13 @@ const FashionCard = ({ cardData, loading }) => {
                     <Col>{item.launch_site.site_name}</Col>
                   </Row>
                 </ListGroupItem>
-                <ListGroupItem className="bg-transparent text-white">
-                  <Row className="d-flex flex-row p-1 bg-dark rounded">
-                    <Col>
-                      <Card.Link
-                        className="text-decoration-none"
-                        href={item.links.video_link}
-                        target={'_blank'}
-                      >
-                        <div className="text-info">Youtube Link</div>
-                      </Card.Link>
-                    </Col>
-                    <Col>
-                      <Card.Link
-                        className="text-decoration-none"
-                        href={item.links.wikipedia}
-                        target={'_blank'}
-                      >
-                        <div className="text-info ">Wikipedia Link</div>
-                      </Card.Link>
-                    </Col>
-                  </Row>
-                </ListGroupItem>
               </ListGroup>
             </div>
           </Card>
         </Col>
       ))}
       <div
-        className="d-flex justify-content-center text-warning h1"
+        className="d-flex justify-content-center text-danger h2"
         style={{ marginTop: '15%' }}
       >
         {loading ? (

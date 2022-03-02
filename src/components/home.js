@@ -118,7 +118,7 @@ const Home = () => {
   const { disPlayData } = data;
 
   return (
-    <Container fluid>
+    <Container fluid >
       <Header
         handleSearch={handleSearch}
         handleFilter={handleFilter}
@@ -126,7 +126,7 @@ const Home = () => {
         filterValue={filterValue}
         setFilterValue={setFilterValue}
       />
-      <Card cardData={disPlayData} loading={Loading} />
+      <Card cardData={disPlayData} loading={Loading}  />
     </Container>
   );
 };

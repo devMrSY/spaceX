@@ -4,7 +4,7 @@
 }
 body {
   overflow-x: hidden;
-  background-image: url('./components/images/bgImg.jpg');
+  background-image: url('./assests/bgImg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

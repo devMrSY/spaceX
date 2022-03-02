@@ -14,7 +14,7 @@ const Header = ({ searchKey, handleSearch, handleFilter, filterValue }) => {
     <Navbar
       className="rounded border border-light mx-4 mt-1 zindex-sticky fixed-top"
       variant="dark"
-      bg="dark"
+      style={{backgroundColor:'#706166'}}
     >
       <Row className="d-flex flex-row mx-2 justify-content-between w-100">
         <Col md={4} sm={12} className="me-2 mb-2">
