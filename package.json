@@ -6,6 +6,7 @@
     "node": "16.14.0",
     "npm": "8.5.0"
   },
+  "homepage": "https://devmrsy.github.io/spaceX/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
