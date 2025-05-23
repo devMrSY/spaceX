@@ -70,12 +70,7 @@ done
 # Return to original branch
 git checkout "$original_branch"
 
-<<<<<<< HEAD
-# Wait for user to press enter before closing
-echo "Script completed. Press enter to exit..."
-=======
 # Wait for user before closing
 echo "🎉 Script completed. Press Enter to exit..."
->>>>>>> 6e21d82 (update bash command)
 read
 ####
