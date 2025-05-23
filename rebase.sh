@@ -35,3 +35,7 @@ new_message=$(</dev/stdin)
 git commit --amend -m "$new_message"
 
 echo "Squash rebase complete with new commit message."
+
+git push --force-with-lease
+
+echo "Force-pushed the changes to the remote repository."
