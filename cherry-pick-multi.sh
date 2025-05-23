@@ -78,3 +78,4 @@ echo "Script completed. Press enter to exit..."
 echo "🎉 Script completed. Press Enter to exit..."
 >>>>>>> 6e21d82 (update bash command)
 read
+####
