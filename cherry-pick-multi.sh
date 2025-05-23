@@ -36,24 +36,45 @@ do
     git cherry-pick "$last_commit"
 
     if [ $? -ne 0 ]; then
-      echo "Conflict occurred on branch $branch!"
-      echo "Aborting cherry-pick on $branch..."
-      git cherry-pick --abort
-      echo "You need to manually apply the commit to $branch."
+      echo "❌ Conflict occurred on branch $branch!"
+      echo "📂 Opening VS Code to resolve conflicts..."
+      code .
+
+      echo "🛠️ Resolve the conflict in VS Code, then press Enter to continue..."
+      read
+
+      echo "Do you want to continue the cherry-pick? (y/n)"
+      read continue_cp
+
+      if [ "$continue_cp" = "y" ]; then
+        git add .
+        git cherry-pick --continue
+        echo "✅ Conflict resolved. Cherry-pick continued."
+        echo "🔼 Pushing to $branch..."
+        git push origin "$branch"
+      else
+        echo "🚫 Aborting cherry-pick on $branch..."
+        git cherry-pick --abort
+        echo "‼️ You need to manually apply the commit to $branch later."
+      fi
     else
-      echo "Cherry-pick successful on $branch."
-      echo "Pushing to $branch..."
+      echo "✅ Cherry-pick successful on $branch."
+      echo "🔼 Pushing to $branch..."
       git push origin "$branch"
     fi
   else
-    echo "Branch $branch does not exist. Skipping."
-    continue
+    echo "⚠️ Branch $branch does not exist. Skipping."
   fi
 done
 
 # Return to original branch
 git checkout "$original_branch"
 
+<<<<<<< HEAD
 # Wait for user to press enter before closing
 echo "Script completed. Press enter to exit..."
+=======
+# Wait for user before closing
+echo "🎉 Script completed. Press Enter to exit..."
+>>>>>>> 6e21d82 (update bash command)
 read
