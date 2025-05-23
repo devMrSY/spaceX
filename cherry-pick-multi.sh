@@ -53,3 +53,7 @@ done
 
 # Return to original branch
 git checkout "$original_branch"
+#
+# Wait for user to press enter before closing
+echo "Script completed. Press enter to exit..."
+read
