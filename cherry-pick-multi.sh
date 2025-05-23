@@ -18,6 +18,10 @@ echo "Enter commit message:"
 read commit_message
 git commit -m "$commit_message"
 
+# Push to base branch
+echo "Pushing to $base_branch..."
+git push origin "$base_branch"
+
 # Get the last commit hash
 last_commit=$(git rev-parse HEAD)
 
@@ -38,6 +42,8 @@ do
       echo "You need to manually apply the commit to $branch."
     else
       echo "Cherry-pick successful on $branch."
+      echo "Pushing to $branch..."
+      git push origin "$branch"
     fi
   else
     echo "Branch $branch does not exist. Skipping."
