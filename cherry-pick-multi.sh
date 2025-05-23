@@ -73,4 +73,3 @@ git checkout "$original_branch"
 # Wait for user before closing
 echo "🎉 Script completed. Press Enter to exit..."
 read
-####
